@@ -1,0 +1,25 @@
+@import "variables";
+
+button {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: background-color $anim;
+  background-color: $buttonColor;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+  gap: 5px;
+  cursor: pointer;
+  &:hover {
+    background-color: $buttonHoverColor;
+  }
+  &:active {
+    background-color: $buttonClickedColor;
+  }
+  &:disabled {
+    cursor: default;
+    background-color: $buttonDisabledColor;
+  }
+}
