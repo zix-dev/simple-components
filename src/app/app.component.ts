@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'simple-components';
-
+  public date = new Date();
   public num = 10;
 }

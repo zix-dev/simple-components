@@ -21,6 +21,12 @@
     padding: 0 2px 0 0;
   }
 
+  .buttons {
+    display: flex;
+    align-items: stretch;
+    gap: 2px;
+  }
+
   &:hover {
     outline-color: #81a2d395;
     background-color: $boxHoverColor;

@@ -1,0 +1,8 @@
+input::-webkit-calendar-picker-indicator {
+  -webkit-appearance: none;
+  display: none;
+}
+input {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}

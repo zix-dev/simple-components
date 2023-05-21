@@ -1,11 +1,12 @@
 <input
   #input
-  type="text"
+  type="date"
   [ngModel]="value"
   [disabled]="disabled"
   (ngModelChange)="writeValue($event)"
   (focus)="onFocus.emit($event)"
 />
 <div class="buttons">
+  <btn icon="fa-regular fa-calendar" (onClick)="input.showPicker()"></btn>
   <ng-content></ng-content>
 </div>

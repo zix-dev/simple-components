@@ -6,6 +6,7 @@ const components = [
   Components.TextBoxComponent,
   Components.BtnComponent,
   Components.NumberBoxComponent,
+  Components.DateBoxComponent,
 ];
 @NgModule({
   imports: [CommonModule, FormsModule],

@@ -1,4 +1,4 @@
-<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="display: flex; flex-direction: column; gap: 10px; font-size: 20px">
   <btn icon="far fa-user" text="helo"> </btn>
   <text-box
     [(ngModel)]="title"
@@ -6,6 +6,10 @@
     [disabled]="t.value == 'disabled'"
   ></text-box>
   <div>{{ title }}</div>
-  <number-box [(ngModel)]="num"><btn text="hello"></btn></number-box>
+  <number-box [(ngModel)]="num" [max]="20" [min]="-5"
+    ><btn text="hello"></btn
+  ></number-box>
   <div>{{ num }}</div>
+  <date-box [ngModel]="date"><btn icon="fa-solid fa-user"></btn></date-box>
+  {{ date | date }}
 </div>

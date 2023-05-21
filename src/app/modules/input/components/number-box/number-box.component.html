@@ -5,6 +5,8 @@
   [disabled]="disabled"
   (ngModelChange)="writeValue($event)"
   (keydown)="onKeyDown($event)"
-  (focus)="onFocus.emit()"
+  (focus)="onFocus.emit($event)"
 />
-<ng-content></ng-content>
+<div class="buttons">
+  <ng-content></ng-content>
+</div>
