@@ -22,4 +22,7 @@ button {
     cursor: default;
     background-color: $buttonDisabledColor;
   }
+  &:host-context(.input-box) {
+    padding: 4px 7px;
+  }
 }

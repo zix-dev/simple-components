@@ -1,9 +1,10 @@
 <input
   #input
-  type="text"
+  type="number"
   [ngModel]="value"
   [disabled]="disabled"
   (ngModelChange)="writeValue($event)"
+  (keydown)="onKeyDown($event)"
   (focus)="onFocus.emit()"
 />
 <ng-content></ng-content>

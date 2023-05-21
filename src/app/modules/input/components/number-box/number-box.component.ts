@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
@@ -11,12 +10,13 @@ import {
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'text-box',
-  templateUrl: './text-box.component.html',
+  selector: 'number-box',
+  templateUrl: './number-box.component.html',
+  styleUrls: ['./number-box.component.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => TextBoxComponent),
+      useExisting: forwardRef(() => NumberBoxComponent),
       multi: true,
     },
   ],
@@ -24,7 +24,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
     class: 'input-box',
   },
 })
-export class TextBoxComponent implements ControlValueAccessor, AfterViewInit {
+export class NumberBoxComponent implements ControlValueAccessor {
   /**
    * Input element ref
    */
@@ -40,7 +40,7 @@ export class TextBoxComponent implements ControlValueAccessor, AfterViewInit {
   /**
    * Value binded by ngModel
    */
-  public value: string = '';
+  public value?: number;
   /**
    * Flag to disable input
    */
@@ -58,11 +58,11 @@ export class TextBoxComponent implements ControlValueAccessor, AfterViewInit {
   /**
    * On change event
    */
-  private _onChange?: (val: string) => void;
+  private _onChange?: (val: number) => void;
   /**
    * Value setter
    */
-  public writeValue(val: string): void {
+  public writeValue(val: number): void {
     if (val == this.value) return;
     this.value = val;
     if (this._onTouched != null) this._onTouched();
@@ -71,7 +71,7 @@ export class TextBoxComponent implements ControlValueAccessor, AfterViewInit {
   /**
    * On change setter
    */
-  public registerOnChange(fn: (val: string) => void): void {
+  public registerOnChange(fn: (val: number) => void): void {
     this._onChange = fn;
   }
   /**
@@ -85,5 +85,11 @@ export class TextBoxComponent implements ControlValueAccessor, AfterViewInit {
    */
   public setDisabledState?(disabled: boolean): void {
     this.disabled = disabled;
+  }
+  /**
+   * On key down prevents that the input must be a number
+   */
+  public onKeyDown(e: KeyboardEvent): void {
+    if (['e', 'E', '+', '-'].includes(e.key)) e.preventDefault();
   }
 }

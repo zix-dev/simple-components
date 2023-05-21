@@ -1,4 +1,11 @@
 <div style="display: flex; flex-direction: column; gap: 10px">
   <btn icon="far fa-user" text="helo"> </btn>
-  <text-box [(ngModel)]="title"> </text-box>
+  <text-box
+    [(ngModel)]="title"
+    #t
+    [disabled]="t.value == 'disabled'"
+  ></text-box>
+  <div>{{ title }}</div>
+  <number-box [(ngModel)]="num"><btn text="hello"></btn></number-box>
+  <div>{{ num }}</div>
 </div>
