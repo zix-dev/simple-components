@@ -1,6 +1,8 @@
 @import "variables";
 
-.input-box {
+base-box {
+  color: $boxFontColor;
+  font-family: $boxFontFamily;
   width: fit-content;
   border-radius: 4px;
   transition: background-color $anim, outline-color $anim;

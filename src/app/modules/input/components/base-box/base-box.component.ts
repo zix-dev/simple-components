@@ -1,7 +1,9 @@
 import {
+  AfterViewInit,
   Component,
   ElementRef,
   EventEmitter,
+  HostListener,
   Input,
   Output,
   ViewChild,
@@ -10,21 +12,17 @@ import {
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-  selector: 'number-box',
-  templateUrl: './number-box.component.html',
-  styleUrls: ['./number-box.component.scss'],
+  selector: 'base-box',
+  templateUrl: './base-box.component.html',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => NumberBoxComponent),
+      useExisting: forwardRef(() => BaseBoxComponent),
       multi: true,
     },
   ],
-  host: {
-    class: 'input-box',
-  },
 })
-export class NumberBoxComponent implements ControlValueAccessor {
+export class BaseBoxComponent implements ControlValueAccessor, AfterViewInit {
   /**
    * Input element ref
    */
@@ -40,29 +38,35 @@ export class NumberBoxComponent implements ControlValueAccessor {
   /**
    * Value binded by ngModel
    */
-  public value?: number;
+  public value: string = '';
   /**
    * Flag to disable input
    */
   public disabled: boolean = false;
   /**
+   * Listens to click events to focus inner input
+   */
+  @HostListener('click') public focus(): void {
+    this.inputElement.nativeElement.focus();
+  }
+  /**
    * After view init focus component if has autofocus
    */
   public ngAfterViewInit(): void {
-    if (this.autofocus) this.inputElement.nativeElement.focus();
+    if (this.autofocus) this.focus();
   }
   /**
    * On touched event
    */
-  private _onTouched?: () => void;
+  protected _onTouched?: () => void;
   /**
    * On change event
    */
-  private _onChange?: (val: number) => void;
+  protected _onChange?: (val: string) => void;
   /**
    * Value setter
    */
-  public writeValue(val: number): void {
+  public writeValue(val: string): void {
     if (val == this.value) return;
     this.value = val;
     if (this._onTouched != null) this._onTouched();
@@ -71,7 +75,7 @@ export class NumberBoxComponent implements ControlValueAccessor {
   /**
    * On change setter
    */
-  public registerOnChange(fn: (val: number) => void): void {
+  public registerOnChange(fn: (val: string) => void): void {
     this._onChange = fn;
   }
   /**
@@ -85,11 +89,5 @@ export class NumberBoxComponent implements ControlValueAccessor {
    */
   public setDisabledState?(disabled: boolean): void {
     this.disabled = disabled;
-  }
-  /**
-   * On key down prevents that the input must be a number
-   */
-  public onKeyDown(e: KeyboardEvent): void {
-    if (['e', 'E', '+', '-'].includes(e.key)) e.preventDefault();
   }
 }
