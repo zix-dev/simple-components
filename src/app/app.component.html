@@ -1,6 +1,7 @@
 <div style="display: flex; flex-direction: column; gap: 10px; font-size: 20px">
   <btn icon="far fa-user" text="helo"> </btn>
-  <base-box [(ngModel)]="title" #t [disabled]="t.value == 'disabled'">
-  </base-box>
+  <text-box [(ngModel)]="title" #t [disabled]="t.value == 'disabled'">
+    <btn text="few"></btn>
+  </text-box>
   <div>{{ title }}</div>
 </div>

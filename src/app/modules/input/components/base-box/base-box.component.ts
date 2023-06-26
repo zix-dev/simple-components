@@ -13,7 +13,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'base-box',
-  templateUrl: './base-box.component.html',
+  template: '',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -21,6 +21,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       multi: true,
     },
   ],
+  host: { class: 'input-box' },
 })
 export class BaseBoxComponent implements ControlValueAccessor, AfterViewInit {
   /**
@@ -87,7 +88,7 @@ export class BaseBoxComponent implements ControlValueAccessor, AfterViewInit {
   /**
    * Disabled setter
    */
-  public setDisabledState?(disabled: boolean): void {
+  public setDisabledState(disabled: boolean): void {
     this.disabled = disabled;
   }
 }

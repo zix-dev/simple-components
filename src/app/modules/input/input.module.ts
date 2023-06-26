@@ -1,9 +1,12 @@
-import { BaseBoxComponent } from './components/base-box/base-box.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import * as Components from './components/index';
 import { FormsModule } from '@angular/forms';
-const components = [Components.BtnComponent, Components.BaseBoxComponent];
+const components = [
+  Components.BtnComponent,
+  Components.BaseBoxComponent,
+  Components.TextBoxComponent,
+];
 @NgModule({
   imports: [CommonModule, FormsModule],
   declarations: components,

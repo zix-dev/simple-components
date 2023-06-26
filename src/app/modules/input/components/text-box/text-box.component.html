@@ -1,0 +1,9 @@
+<input
+  #input
+  type="text"
+  [disabled]="disabled"
+  [ngModel]="value"
+  (ngModelChange)="writeValue($event)"
+  (focus)="onFocus.emit()"
+/>
+<ng-content></ng-content>
