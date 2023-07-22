@@ -44,13 +44,13 @@ export class NumberBoxComponent extends BaseBoxComponent<number> {
     if (verticalArrowKeys.includes(e.key)) {
       let amount = e.ctrlKey ? 100 : e.shiftKey ? 10 : 1;
       if (e.key == 'ArrowDown') amount = amount * -1;
-      this.writeValue(this.value == null ? amount : this.value + amount);
+      this.value = this.value == null ? amount : this.value + amount;
     } else if (numberSignKeys.includes(e.key)) {
       if (
         this.value != null &&
         ((e.key == '+' && this.value < 0) || (e.key == '-' && this.value > 0))
       )
-        this.writeValue(this.value * -1);
+        this.value = this.value * -1;
     } else if (e.key == 'Enter') this.validateLimits();
   }
   /**
@@ -58,9 +58,9 @@ export class NumberBoxComponent extends BaseBoxComponent<number> {
    */
   public override writeStringValue = (val: string) => {
     this.stringValue = val;
-    if (val.trim() == '') this.writeValue(undefined);
+    if (val.trim() == '') this.value = undefined;
     else {
-      this.writeValue(parseInt(val));
+      this.value = parseInt(val);
     }
   };
   /**
@@ -69,8 +69,8 @@ export class NumberBoxComponent extends BaseBoxComponent<number> {
   @HostListener('focusout')
   public validateLimits() {
     if (this.value != null) {
-      if (this.max != null && this.value > this.max) this.writeValue(this.max);
-      if (this.min != null && this.value > this.min) this.writeValue(this.min);
+      if (this.max != null && this.value > this.max) this.value = this.max;
+      if (this.min != null && this.value < this.min) this.value = this.min;
       this.stringValue = this.value.toString();
     }
   }

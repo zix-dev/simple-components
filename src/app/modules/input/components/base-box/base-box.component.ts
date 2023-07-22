@@ -45,7 +45,13 @@ export class BaseBoxComponent<T = string>
   /**
    * Value binded by ngModel
    */
-  public value?: T;
+  private _value?: T;
+  public set value(val: T | undefined) {
+    this.writeValue(val);
+  }
+  public get value(): T | undefined {
+    return this._value;
+  }
   /**
    * Flag to disable input
    */
@@ -74,11 +80,11 @@ export class BaseBoxComponent<T = string>
    * Value setter
    */
   public writeValue(val?: T): void {
-    if (val == this.value) return;
-    this.value = val;
+    if (val == this._value) return;
+    this._value = val;
     this.valueToString();
     if (this._onTouched != null) this._onTouched();
-    if (this._onChange != null) this._onChange(this.value);
+    if (this._onChange != null) this._onChange(this._value);
   }
   /**
    * String value setter (calls value setter)
@@ -88,7 +94,7 @@ export class BaseBoxComponent<T = string>
    * Method to generate string value from value
    */
   public valueToString(): void {
-    this.stringValue = this.value == null ? '' : `${this.value}`;
+    this.stringValue = this._value == null ? '' : `${this._value}`;
   }
   /**
    * On change setter
