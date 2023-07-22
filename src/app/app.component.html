@@ -1,7 +1,9 @@
 <div style="display: flex; flex-direction: column; gap: 10px; font-size: 20px">
   <btn icon="far fa-user" text="helo"> </btn>
-  <text-box [(ngModel)]="title" #t [disabled]="t.value == 'disabled'">
+  <text-box [(ngModel)]="title" #t [disabled]="t.stringValue == 'disabled'">
     <btn text="few"></btn>
   </text-box>
+  <number-box #n [ngModel]="5"></number-box>
+  {{ n.value == null ? "" : n.value * 2 }}
   <div>{{ title }}</div>
 </div>

@@ -3,7 +3,7 @@
   type="text"
   [disabled]="disabled"
   [ngModel]="stringValue"
-  (ngModelChange)="writeValue($event)"
+  (ngModelChange)="writeStringValue($event)"
   (focus)="onFocus.emit()"
 />
 <ng-content></ng-content>

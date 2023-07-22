@@ -23,7 +23,9 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
   ],
   host: { class: 'input-box' },
 })
-export class BaseBoxComponent implements ControlValueAccessor, AfterViewInit {
+export class BaseBoxComponent<T = string>
+  implements ControlValueAccessor, AfterViewInit
+{
   /**
    * Input element ref
    */
@@ -39,7 +41,11 @@ export class BaseBoxComponent implements ControlValueAccessor, AfterViewInit {
   /**
    * Value binded by ngModel
    */
-  public value: string = '';
+  public stringValue: string = '';
+  /**
+   * Value binded by ngModel
+   */
+  public value?: T;
   /**
    * Flag to disable input
    */
@@ -63,20 +69,31 @@ export class BaseBoxComponent implements ControlValueAccessor, AfterViewInit {
   /**
    * On change event
    */
-  protected _onChange?: (val: string) => void;
+  protected _onChange?: (val?: T) => void;
   /**
    * Value setter
    */
-  public writeValue(val: string): void {
+  public writeValue(val?: T): void {
     if (val == this.value) return;
     this.value = val;
+    this.valueToString();
     if (this._onTouched != null) this._onTouched();
     if (this._onChange != null) this._onChange(this.value);
   }
   /**
+   * String value setter (calls value setter)
+   */
+  public writeStringValue!: (val: string) => void;
+  /**
+   * Method to generate string value from value
+   */
+  public valueToString(): void {
+    this.stringValue = this.value == null ? '' : `${this.value}`;
+  }
+  /**
    * On change setter
    */
-  public registerOnChange(fn: (val: string) => void): void {
+  public registerOnChange(fn: (val?: T) => void): void {
     this._onChange = fn;
   }
   /**
