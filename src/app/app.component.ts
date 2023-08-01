@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewContainerRef } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +9,6 @@ export class AppComponent {
   title = 'simple-components';
   public date = new Date();
   public num = 10;
+  public constructor(vcr: ViewContainerRef) {}
+  public openPopup(): void {}
 }

@@ -5,6 +5,7 @@ import { NG_VALUE_ACCESSOR } from '@angular/forms';
 @Component({
   selector: 'text-box',
   templateUrl: './text-box.component.html',
+  styleUrls: ['./../../../styles/input.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

@@ -7,11 +7,12 @@ import {
   numbersKeys,
   removalKeys,
   verticalArrowKeys,
-} from 'src/app/models/key.models';
+} from 'src/app/modules/input/models/key.models';
 
 @Component({
   selector: 'number-box',
   templateUrl: './number-box.component.html',
+  styleUrls: ['./../../../styles/input.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

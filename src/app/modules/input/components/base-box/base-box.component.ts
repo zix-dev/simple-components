@@ -21,7 +21,6 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
       multi: true,
     },
   ],
-  host: { class: 'input-box' },
 })
 export class BaseBoxComponent<T = string>
   implements ControlValueAccessor, AfterViewInit
