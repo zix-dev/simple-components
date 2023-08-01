@@ -9,11 +9,13 @@ import { FormsModule } from '@angular/forms';
     Components.BaseBoxComponent,
     Components.TextBoxComponent,
     Components.NumberBoxComponent,
+    Components.TextAreaComponent,
   ],
   exports: [
     Components.BtnComponent,
     Components.TextBoxComponent,
     Components.NumberBoxComponent,
+    Components.TextAreaComponent,
   ],
 })
 export class InputModule {}

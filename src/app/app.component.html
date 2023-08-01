@@ -1,9 +1,15 @@
 <div style="display: flex; flex-direction: column; gap: 10px; font-size: 20px">
   <btn icon="far fa-user" text="helo" (onClick)="openPopup()"> </btn>
-  <text-box [(ngModel)]="title" #t [disabled]="t.stringValue == 'disabled'">
+  <text-box
+    [maxlength]="10"
+    [(ngModel)]="title"
+    #t
+    [disabled]="t.stringValue == 'disabled'"
+  >
     <btn text="few"></btn>
   </text-box>
   <number-box [max]="900" [min]="-50" [(ngModel)]="num"></number-box>
   <number-box [max]="800" [min]="-500" [(ngModel)]="num"></number-box>
+  <text-area></text-area>
   <div>{{ title }}</div>
 </div>

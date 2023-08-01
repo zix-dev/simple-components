@@ -28,7 +28,9 @@ export class BaseBoxComponent<T = string>
   /**
    * Input element ref
    */
-  @ViewChild('input') public inputElement!: ElementRef<HTMLInputElement>;
+  @ViewChild('input') public inputElement!: ElementRef<
+    HTMLInputElement | HTMLTextAreaElement
+  >;
   /**
    * Flag to focus on init
    */

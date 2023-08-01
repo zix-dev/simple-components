@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
   selector: 'btn',
   templateUrl: './btn.component.html',
-  styleUrls: ['./../../../styles/btn.scss'],
+  styleUrls: ['./../../styles/btn.scss'],
 })
 export class BtnComponent {
   @Input() public text?: string;

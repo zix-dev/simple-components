@@ -12,7 +12,7 @@ import {
 @Component({
   selector: 'number-box',
   templateUrl: './number-box.component.html',
-  styleUrls: ['./../../../styles/input.scss'],
+  styleUrls: ['./../../styles/input.scss'],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
