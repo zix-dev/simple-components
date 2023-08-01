@@ -35,6 +35,7 @@ export class BaseBoxComponent<T = string>
    * Flag to focus on init
    */
   @Input() public autofocus: boolean = false;
+  @Input() public placeholder: string = '';
   /**
    * On focus event emmiter
    */

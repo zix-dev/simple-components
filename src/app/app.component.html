@@ -1,6 +1,7 @@
 <div style="display: flex; flex-direction: column; gap: 10px; font-size: 20px">
   <btn icon="far fa-user" text="helo" (onClick)="openPopup()"> </btn>
   <text-box
+    placeholder="124422"
     [maxlength]="10"
     [(ngModel)]="title"
     #t
@@ -8,8 +9,18 @@
   >
     <btn text="few"></btn>
   </text-box>
-  <number-box [max]="900" [min]="-50" [(ngModel)]="num"></number-box>
-  <number-box [max]="800" [min]="-500" [(ngModel)]="num"></number-box>
-  <text-area></text-area>
+  <number-box
+    placeholder="124422"
+    [max]="900"
+    [min]="-50"
+    [(ngModel)]="num"
+  ></number-box>
+  <number-box
+    placeholder="124422"
+    [max]="800"
+    [min]="-500"
+    [(ngModel)]="num"
+  ></number-box>
+  <text-area placeholder="124422"></text-area>
   <div>{{ title }}</div>
 </div>

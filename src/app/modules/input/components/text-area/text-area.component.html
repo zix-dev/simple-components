@@ -1,10 +1,11 @@
-<div class="input-box">
+<div style="min-height: 100px" class="input-box textarea-box">
   <textarea
     #input
     class="input"
     type="text"
     [disabled]="disabled"
     [ngModel]="stringValue"
+    [placeholder]="placeholder"
     (ngModelChange)="writeValue($event)"
     (focus)="onFocus.emit()"
   ></textarea>
