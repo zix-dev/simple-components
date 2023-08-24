@@ -2,6 +2,7 @@
 
 :host {
   display: flex;
+  position: relative;
 }
 
 .input-box {
@@ -35,7 +36,7 @@
   }
 
   &:hover {
-    outline-color: #81a2d395;
+    outline-color: $boxOutlineColorHover;
     background-color: $boxHoverColor;
     input {
       background-color: $boxHoverColor;
@@ -44,7 +45,7 @@
 
   &:focus-within {
     background-color: $boxFocusedColor;
-    outline: 2px solid #81a2d3;
+    outline: 2px solid $boxOutlineColor;
     .input {
       background-color: $boxFocusedColor;
     }
@@ -57,6 +58,6 @@
 
 .textarea-box .input {
   height: 100%;
-
+  font-family: inherit;
   padding: 2px 2px 2px 2px;
 }

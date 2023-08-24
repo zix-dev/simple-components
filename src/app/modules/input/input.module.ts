@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
     Components.TextAreaComponent,
   ],
   exports: [
+    FormsModule,
     Components.BtnComponent,
     Components.TextBoxComponent,
     Components.NumberBoxComponent,
